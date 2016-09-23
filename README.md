@@ -1,5 +1,5 @@
 # PowerShell for Microsoft Partners
-PowerShell script pepository for Microsoft Parnters
+PowerShell script pepository for Microsoft Partners
 
 All scripts assume you have your own Office 365 tenant and Partner Admin Center enabled
 
