@@ -14,6 +14,9 @@ Login-AzureRmAccount -Credential $PacCreds -TenantId $TenantId
 ## Add count and if for SubscriptionId
 $SubId = (Get-AzureRmSubscription -TenantId $TenanId| Out-GridView -Title "Select the subscription..." -PassThru).SubscriptionId
 
+## Set the Azure SubscriptionId
+Select-AzureRmSubscription -TenantId  $TenantId -SubscriptionId $SubId
+
 ## Input domain name, exclude http and www e.g. microsoft.com
 Write-Host "`n`tEnter the domain name: " -ForegroundColor Cyan -nonewline;
 $choice = Read-Host
