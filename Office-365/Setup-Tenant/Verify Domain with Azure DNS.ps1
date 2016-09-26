@@ -30,3 +30,7 @@ New-AzureRmDnsZone -Name $DomainName -ResourceGroupName "DNS"
 ## Output nameservers
 $Records = (Get-AzureRmDnsRecordSet -ZoneName $DomainName -ResourceGroupName "DNS" -RecordType NS).Records
 $Records
+
+## Add domain in O365
+## Set DNS records
+## Verify DNS has propegated
