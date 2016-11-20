@@ -11,7 +11,7 @@ $TenantId = (Get-MsolPartnerContract -All | Out-GridView -Title "Find the custom
 Login-AzureRmAccount -Credential $PacCreds -TenantId $TenantId
 
 ## Find the Azure SubscriptionId
-$SubId = (Get-AzureRmSubscription -TenantId $TenanId| Out-GridView -Title "Select the subscription..." -PassThru).SubscriptionId
+$SubId = (Get-AzureRmSubscription -TenantId $TenantId | Out-GridView -Title "Select the subscription..." -PassThru).SubscriptionId
 
 ## Set the Azure SubscriptionId
 Select-AzureRmSubscription -TenantId  $TenantId -SubscriptionId $SubId
