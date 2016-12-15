@@ -3,21 +3,21 @@ $domains = @(Get-Content C:\domains.txt)
 Function Export-PartnerMX
 {
     $results = @()
-    $domains | resolve-dnsname -Type MX -Server 8.8.8.8 | where {$_.QueryType -eq "MX"}
-        
-    foreach ($domains in $domains)
+    $resolvedDomains = $domains | resolve-dnsname -Type MX -Server 8.8.8.8 | where {$_.QueryType -eq "MX"}
+       
+    foreach ($domain in $resolvedDomains)
     {
-        $details = @{            
-                DomainName          = $domains.Name
-                Tye                 = $domains.Type
-                NameExchange        = $domains.NameExchange
-                Preference          = $domains.Preference
-        }  
-
+        $details = @{           
+                DomainName          = $domain.Name
+                Type                = $domain.Type
+                NameExchange        = $domain.NameExchange
+                Preference          = $domain.Preference
+        } 
+ 
         $results += New-Object PSObject -Property $details
-        
-    }    
-    $results | export-csv -Path "c:\mxtest.csv"
+       
+    }   
+    $results | export-csv -Path "c:\mxtest3.csv"
     Write-Host "Very Nice, Great Success!!" -ForegroundColor Green
 
 }
