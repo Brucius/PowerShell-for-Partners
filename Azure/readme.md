@@ -1,1 +1,1 @@
-Boring instructions go here
+Look into Basics folder first and follow the instructions
