@@ -1,1 +1,1 @@
-Say whaaaaaat
+Installing Modules and Selecting subscription as Partner
