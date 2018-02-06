@@ -1,9 +1,10 @@
 ##Run PowerShell ISE as Administrator
 
-##Import Office 365 and Azure AD module
-Import-Module -Name MSOnline
 #Install MSOnline PowerShell for Azure Active Directory (V1)
 Install-Module -Name MSOnline
+##Import Office 365 and Azure AD module
+Import-Module -Name MSOnline
+
 
 #Install AzureRM module
 Install-Module -Name AzureRM
