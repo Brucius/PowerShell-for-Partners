@@ -1,8 +1,11 @@
-$sas = Grant-AzureRmDiskAccess -ResourceGroupName $RG -DiskName $diskname -DurationInSecond 3600 -Access Read 
+##Login
+Add-AzureRmAccount 
 
-$destContext = New-AzureStorageContext –StorageAccountName $SAName -StorageAccountKey $SAKey 
+$sas = Grant-AzureRmDiskAccess -ResourceGroupName "$RG" -DiskName "$diskname" -DurationInSecond 3600 -Access Read 
 
-$blob1 = Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $SAContainer -DestContext $destContext -DestBlob '$diskname.vhd'
+$destContext = New-AzureStorageContext –StorageAccountName "$SAName" -StorageAccountKey "$SAKey" 
+
+$blob1 = Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer "$SAContainer" -DestContext $destContext -DestBlob '$diskname.vhd'
 
 ### Retrieve the current status of the copy operation ###
 $status = $blob1 | Get-AzureStorageBlobCopyState 
