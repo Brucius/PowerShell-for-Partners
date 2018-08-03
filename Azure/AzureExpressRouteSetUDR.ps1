@@ -1,7 +1,7 @@
 #For Further Updates on IP Changes of Azure KMS Service please visit
 #https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/
 
-Add-AzureRmAccount
+Login-AzureRmAccount
 
 #Get information on the virtual network
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "ResourceGroup" -Name "VNet"
