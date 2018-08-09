@@ -2,13 +2,16 @@
 # THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,  
 # EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED  
 # WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE. 
+#
+#  Script to inventory the VM's (both ASM and ARM based) against all Azure subscriptions the account has access to.
+#  Adapted from AzureARMVMInventorywithTags.ps1 by Oaker Min. 
 # 
 #  Title         : AzureARMVMDetailedInventorywithTags 
 #  Programmed by : Denis Rougeau, Oaker Min(Bruce)
 #  Date          : Aug , 2018
 # 
 # -------------------------------------------------------------------------------------------------------------- 
-#  GET THE LATEST VERSION HERE: https://gallery.technet.microsoft.com/Azure-ARM-VM-Inventory-57ba01b7
+#  source: https://gallery.technet.microsoft.com/Azure-ARM-VM-Inventory-57ba01b7
 # -------------------------------------------------------------------------------------------------------------- 
 # 
 # Demo Script to create Azure ARM VM List into a CSV files with VM Tags as header (One file per subscription) 
