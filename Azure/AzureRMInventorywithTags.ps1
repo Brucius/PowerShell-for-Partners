@@ -3,7 +3,7 @@
 # EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED  
 # WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE. 
 #
-#  Script to inventory the VM's (both ASM and ARM based) against all Azure subscriptions the account has access to.
+#  Script to inventory the VM's (both ASM and ARM based) against all Azure subscriptions the account has access to even across directory.
 #  Adapted from AzureARMVMInventorywithTags.ps1 by Oaker Min. 
 # 
 #  Title         : AzureARMVMDetailedInventorywithTags 
