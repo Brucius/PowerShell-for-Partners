@@ -54,8 +54,10 @@
 
 Import-Module Azure 
 
-# TO BE MODIFIED AS APPROPRIATE.  Currently start the file name with datetime stamp.  1 file per subscription. Make sure you do not miss the backslash \
-$OutputCSVPath = "C:\temp\" 
+# TO BE MODIFIED AS APPROPRIATE.  Currently start the file name with datetime stamp.  1 file per subscription.
+# IMPORTANT !!! Make sure to not miss the backslash at the end of the OutputCSVPath variable below.
+
+$OutputCSVPath = "C:\folder\" 
 $OutputCSVFile = "{0:yyyyMMddHHmm}-AzureARMVMList" -f (Get-Date) 
 $outputCSVExt  = ".csv" 
  
