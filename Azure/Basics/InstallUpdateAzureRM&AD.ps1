@@ -1,9 +1,12 @@
-##Run PowerShell ISE as Administrator
+##Run POSH Terminal as Administrator
 
 #Install MSOnline PowerShell for Azure Active Directory (V1)
 Install-Module -Name MSOnline
 ##Import Office 365 and Azure AD module
 Import-Module -Name MSOnline
+
+#Check Existing AzureRM module
+$PSVersionTable.PSVersion
 
 
 #Install AzureRM module
@@ -11,7 +14,10 @@ Install-Module -Name AzureRM
 
 #Import AzureRM module
 Import-Module -Name AzureRM
-Import-Module -Name AzureRM.profile
+
+#Update Azure RM module to latest
+Update-Module -Name AzureRM
+Install-Module -Name AzureRM -Repository PSGallery -Force
 
 #Import SharePoint Online module
 Import-Module Microsoft.Online.SharePoint.PowerShell -DisableNameChecking
@@ -19,7 +25,7 @@ Import-Module Microsoft.Online.SharePoint.PowerShell -DisableNameChecking
 #Import Skype for Busines Online module
 Import-Module SkypeOnlineConnector
 
-#Import Azure Service Manager module
+#Import Azure classic module
 #Only used with legacy deployments, not relevant to Azure CSP
 Install-Module Azure
 
