@@ -1,10 +1,17 @@
-$sourceSubscriptionId='SourceID'
-$sourceResourceGroupName='SourceRG'
-$managedDiskName='SourceOSDISK'
-Select-AzureRmSubscription -SubscriptionId $sourceSubscriptionId
-$managedDisk= Get-AzureRMDisk -ResourceGroupName $sourceResourceGroupName -DiskName $managedDiskName
-$targetSubscriptionId='TargetID'
-$targetResourceGroupName='TargetRG'
-Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
+### SOURCE DETAILS
+$SourceSubId = 'SourceID'
+$SourceRGName = 'SourceRG'
+$SourceDiskName = 'SourceOSDISK'
+
+### TARGET DETAILS
+$TargetSubId = 'TargetID'
+$TargetRGName = 'TargetRG'
+
+### Select Source Context
+Select-AzureRmSubscription -SubscriptionId $SourceSubId
+$managedDisk= Get-AzureRMDisk -ResourceGroupName $SourceRGName -DiskName $SourceDiskName
+
+### Select Target Context
+Select-AzureRmSubscription -SubscriptionId $TargetSubId
 $diskConfig = New-AzureRmDiskConfig -SourceResourceId $managedDisk.Id -Location $managedDisk.Location -CreateOption Copy
-New-AzureRmDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName $targetResourceGroupName
+New-AzureRmDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName $TargetRGName
