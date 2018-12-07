@@ -14,4 +14,4 @@ $managedDisk= Get-AzureRMDisk -ResourceGroupName $SourceRGName -DiskName $Source
 ### Select Target Context
 Select-AzureRmSubscription -SubscriptionId $TargetSubId
 $diskConfig = New-AzureRmDiskConfig -SourceResourceId $managedDisk.Id -Location $managedDisk.Location -CreateOption Copy
-New-AzureRmDisk -Disk $diskConfig -DiskName $managedDiskName -ResourceGroupName $TargetRGName
+New-AzureRmDisk -Disk $diskConfig -DiskName $SourceDiskName -ResourceGroupName $TargetRGName
