@@ -1,26 +1,25 @@
 #This script is adapted from https://gallery.technet.microsoft.com/scriptcenter/Azure-Clone-an-Network-84ea5fa3
 #Repurposed to clone the NSGs with multiple rules across subscription within the same AAD
 
-#name of NSG that you want to copy from source subscription
-$sourceSubscriptionId = "sourceSubID"
+$sourceSubscriptionId = "sourceSubId"
+$sourceTenantId = "sourceTenantId"
 $nsgOrigin = "sourceNSG" 
-#select source subscription
-Select-AzureRmSubscription -SubscriptionId $sourceSubscriptionId
+$rgName = "sourceRG" #Resource Group Name of source NSG 
 
-#name new NSG  
-$nsgDestination = "targetNSG" 
-#Resource Group Name of source NSG 
-$rgName = "nsgsource" 
+$targetSubscriptionId="targetSubId"
+$targetTenantId = "targetTenantId"
+$nsgDestination = "targetNSG" #name new NSG. Must create in target subscription first
+$rgNameDest = "targetRG" #Resource Group Name when you want the new NSG placed 
 
+#select source subscription and get rules
+Set-AzureRmContext -SubscriptionId $sourceSubscriptionId -TenantId $sourceTenantId
 $nsg = Get-AzureRmNetworkSecurityGroup -Name $nsgOrigin -ResourceGroupName $rgName 
 $nsgRules = Get-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg 
-$targetSubscriptionId="targetSubID"
 
-Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
-#Resource Group Name when you want the new NSG placed 
-$rgNameDest = "nsgTarget"
+Set-AzureRmContext -SubscriptionId $targetSubscriptionId -TenantId $targetTenantId
 
-$newNsg = Get-AzureRmNetworkSecurityGroup -name $nsgDestination -ResourceGroupName $rgNameDest 
+
+$newNsg = Get-AzureRmNetworkSecurityGroup -name $nsgDestination -ResourceGroupName $rgNameDest
 foreach ($nsgRule in $nsgRules) { 
     Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $newNsg `
         -Name $nsgRule.Name `
