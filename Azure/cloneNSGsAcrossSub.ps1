@@ -18,7 +18,6 @@ $nsgRules = Get-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 
 Set-AzureRmContext -SubscriptionId $targetSubscriptionId -TenantId $targetTenantId
 
-
 $newNsg = Get-AzureRmNetworkSecurityGroup -name $nsgDestination -ResourceGroupName $rgNameDest
 foreach ($nsgRule in $nsgRules) { 
     Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $newNsg `
