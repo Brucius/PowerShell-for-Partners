@@ -1,5 +1,5 @@
 <# This is for machines using marketplace Images that needs to be deployed
-into availabilit zones. Deploy the machine first and get the error message
+into availability zones. Deploy the machine first and get the error message
 of failing due to marketplace terms then run this script #>
 
 $targetSubscriptionId='targetsubID'
