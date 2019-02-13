@@ -1,6 +1,17 @@
 <# This is for machines using marketplace Images that needs to be deployed
 into availability zones. Deploy the machine first and get the error message
-of failing due to marketplace terms then run this script #>
+of failing due to marketplace terms then run this script.
+
+Reference Marketplace Source file
+"storageProfile": {
+    "imageReference": {
+        "publisher": "checkpoint",
+        "offer": "check-point-vsec-r80",
+        "sku": "sg-byol",
+        "version": "latest"
+    }
+}
+#>
 
 $targetSubscriptionId='targetsubID'
 Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
