@@ -42,23 +42,21 @@ $osDisk = New-AzureRmDisk -DiskName "$osDiskName" -Disk `
 Remove-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
 
 
-$agreementTerms = Get-AzureRmMarketplaceTerms -Publisher "riverbed" -Product "riverbed-steelhead-9-6-0" -Name "riverbed-steelhead-9-6-0" 
+$agreementTerms = Get-AzureRmMarketplaceTerms -Publisher "publisherName" -Product "offerName" -Name "skuName" 
 
-Set-AzureRmMarketplaceTerms -Publisher "riverbed" -Product "riverbed-steelhead-9-6-0" -Name "riverbed-steelhead-9-6-0" -Terms $agreementTerms -Accept 
+Set-AzureRmMarketplaceTerms -Publisher "publisherName" -Product "offerName" -Name "skuName" -Terms $agreementTerms -Accept 
 $nic = Get-AzureRmNetworkInterface -Name $nicName `
    -ResourceGroupName $destinationResourceGroup 
 
-
-$vmConfig = New-AzureRmVMConfig -VMName "$vmName" -VMSize $vmSize -Zone "$Zone"
+$vmConfig = New-AzureRmVMConfig -VMName "$vmName" -VMSize $vmSize
 
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 $vm = Set-AzureRmVMOSDisk -VM $vm `
     -ManagedDiskId $osDisk.Id `
     -StorageAccountType Standard_LRS `
-    -DiskSizeInGB 38 `
+    -DiskSizeInGB 100 `
     -CreateOption Attach -Linux
-$vm = Set-AzureRmVMPlan -VM $vm -Publisher "riverbed" -Product "riverbed-steelhead-9-6-0" -Name "riverbed-steelhead-9-6-0" 
-
+$vm = Set-AzureRmVMPlan -VM $vm -Publisher "publisherName" -Product "offerName" -Name "skuName"
 
 New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
