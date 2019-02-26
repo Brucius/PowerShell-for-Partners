@@ -1,3 +1,5 @@
+##From 4sysop
+
 $locname=Get-AzureRmLocation | `
 select displayname | `
 Out-GridView -PassThru -Title "Choose a location"
