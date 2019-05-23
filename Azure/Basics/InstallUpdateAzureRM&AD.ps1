@@ -5,7 +5,7 @@ Install-Module -Name MSOnline
 ##Import Office 365 and Azure AD module
 Import-Module -Name MSOnline
 
-#Check Existing AzureRM module
+#Check Existing Powershell Version
 $PSVersionTable.PSVersion
 
 
