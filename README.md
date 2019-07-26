@@ -1,7 +1,15 @@
 # PowerShell for Microsoft Partners
-PowerShell script repository for Microsoft Partners
+A curated repository of useful powershell scripts for Azure Administrators from Microsoft Cloud Solution Provider (CSP) Partner Organizations.
 
-All scripts assume you have your own Office 365 tenant and Partner Admin Center enabled
+All scripts assume you have your own Office 365 tenant and Partner Center enabled.
+If you do not have Partner Center enabled, 
+https://youtu.be/7qnSVtwOYgU
 
-Watch a video on that here <br>
-https://www.youtube.com/watch?v=B-bMCewxYFc&t=19s
+## AzureRM
+To get started with AzureRM, go here.
+https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureRmTemplates#basics-and-pre-requisites-to-run-these-scripts
+
+
+## AzureAz
+To get started with AzureAz, go here. (Currently in progress of converting RM to Az)
+https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureAzTemplates#to-install-the-new-az-module-based-on-net-core
