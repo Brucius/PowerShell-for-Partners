@@ -11,5 +11,5 @@ To get started with AzureRM, [Go Here](https://github.com/Brucius/PowerShell-for
 
 
 ## AzureAz
-To get started with AzureAz, [Go Here].(https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureAzTemplates#to-install-the-new-az-module-based-on-net-core). (Currently in progress of converting RM to Az)
+To get started with AzureAz, [Go Here](https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureAzTemplates#to-install-the-new-az-module-based-on-net-core). (Currently in progress of converting RM to Az)
 
