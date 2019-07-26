@@ -1,5 +1,5 @@
 # Basics and Pre-requisites to run these scripts
-The below cmdlets helps you install necessary moduesl the run the scripts on your local machine.
+The below cmdlets helps you install necessary modules to run the scripts on your local machine.
 
 ## To Install AzureRM module
 ```

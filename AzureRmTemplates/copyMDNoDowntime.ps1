@@ -1,3 +1,4 @@
+# The following script lets you copy a managed disk across 2 subscriptions in the same tenant instantaneously.
 ### SOURCE DETAILS
 $SourceSubId = 'SourceID'
 $SourceRGName = 'SourceRG'
