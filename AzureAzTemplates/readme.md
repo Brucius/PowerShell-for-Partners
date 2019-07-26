@@ -1,5 +1,5 @@
 ## To Install the new Az module based on .Net Core. 
-Only install this module after uninstalling the RM modules.
+Currently in progress of converting existing RM scripts into Az. Contributions welcome! Only install this module after uninstalling the RM modules.
 To Uninstall all AzureRM module
 ```
 $versions = (Get-InstalledModule AzureRM -AllVersions | Select-Object Version)

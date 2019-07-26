@@ -16,7 +16,7 @@ $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
 $snapshotConfig =  New-AzureRmSnapshotConfig `
   -SourceUri $disk.Id `
   -CreateOption Copy `
-  -Location $location ` 
+  -Location $location `
 
 $snapShot = New-AzureRmSnapshot `
    -Snapshot $snapshotConfig `

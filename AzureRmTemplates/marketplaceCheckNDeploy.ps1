@@ -51,7 +51,7 @@ $targetSubscriptionId='targetsubID'
 Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
 $vmName = 'vmName'
 $resourceGroupName = 'rgName' 
-$Zone = "1-2-3"
+$Zone = "1-2-3" #option of zone 1,2,3
 $nicName = "nicName"
 $vmSize = "Standard_E4_v3"
 
