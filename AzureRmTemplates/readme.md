@@ -1,5 +1,5 @@
 # Basics and Pre-requisites to run these scripts
-Below modules are in the order of my personal preference. Currently the new Az modules do not work well with existing MsOnline modules.
+The below cmdlets helps you install necessary moduesl the run the scripts on your local machine.
 
 ## To Install AzureRM module
 ```
@@ -11,9 +11,9 @@ Import-Module -Name AzureRM
 
 ## Install MSOnline PowerShell for Azure Active Directory (V1)
 ```Install-Module -Name MSOnline```
+
 Import Office 365 and Azure AD module
 ```Import-Module -Name MSOnline```
-
 
 ## To Uninstall all AzureRM module
 ```
@@ -23,9 +23,3 @@ Get-Module -ListAvailable | Where-Object { $_.Name -like 'AzureRM*' } | Uninstal
 ```
 ## To Uninstall all Azure
 ```Get-Module -ListAvailable | Where-Object { $_.Name -like 'Azure*' } | Uninstall-Module```
-
-## To Install the new Az module based on .Net Core. 
-Only install this module after uninstalling the Rm modules.
-```Install-Module -Name Az```
-## To Update the module
-```Install-Module -Name Az -AllowClobber -Force```
