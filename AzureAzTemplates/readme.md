@@ -7,8 +7,11 @@ $versions | foreach { Uninstall-AllModules -TargetModule AzureRM -Version ($_.Ve
 Get-Module -ListAvailable | Where-Object { $_.Name -like 'AzureRM*' } | Uninstall-Module
 ```
 To Uninstall all Azure
+
 ```Get-Module -ListAvailable | Where-Object { $_.Name -like 'Azure*' } | Uninstall-Module```
 
 ## To Install and Update the module
-```Install-Module -Name Az
-Install-Module -Name Az -AllowClobber -Force```
+```
+Install-Module -Name Az
+Install-Module -Name Az -AllowClobber -Force
+```
