@@ -6,10 +6,10 @@ If you do not have Partner Center enabled,
 https://youtu.be/7qnSVtwOYgU
 
 ## AzureRM
-To get started with AzureRM, go here.
-https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureRmTemplates#basics-and-pre-requisites-to-run-these-scripts
+To get started with AzureRM, [Go Here](https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureRmTemplates#basics-and-pre-requisites-to-run-these-scripts).
+
 
 
 ## AzureAz
-To get started with AzureAz, go here. (Currently in progress of converting RM to Az)
-https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureAzTemplates#to-install-the-new-az-module-based-on-net-core
+To get started with AzureAz, [Go Here].(https://github.com/Brucius/PowerShell-for-Partners/tree/master/AzureAzTemplates#to-install-the-new-az-module-based-on-net-core). (Currently in progress of converting RM to Az)
+
