@@ -47,7 +47,7 @@ $destinationResourceGroup = $resourceGroupName
 $osDisk = New-AzureRmDisk -DiskName "$osDiskName" -Disk `
     (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
     -SourceResourceId $snapshot.Id `
-    -Zone "$Zone") `      
+    -Zone "$Zone") l
     -ResourceGroupName $destinationResourceGroup
 
 Remove-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
