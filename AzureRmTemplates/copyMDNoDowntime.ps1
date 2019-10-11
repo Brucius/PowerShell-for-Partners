@@ -5,11 +5,12 @@ $SourceRGName = 'SourceRG'
 $SourceDiskName = 'SourceOSDISK'
 
 ### TARGET DETAILS
-$TargetSubId = 'TargetID'
+$TargetSubId = 'SubID'
+$TargetTenantId = 'TenantID'
 $TargetRGName = 'TargetRG'
 
 ### Select Source Context
-Select-AzureRmSubscription -SubscriptionId $SourceSubId
+Select-AzureRmContext -SubscriptionId $TargetSubId -TenantId $TargetTenantId
 $managedDisk= Get-AzureRMDisk -ResourceGroupName $SourceRGName -DiskName $SourceDiskName
 
 ### Select Target Context
