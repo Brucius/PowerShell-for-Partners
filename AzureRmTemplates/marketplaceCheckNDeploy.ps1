@@ -48,6 +48,20 @@ Reference Marketplace Source file
 }
 #>
 
+<# This is for machines using marketplace Images that needs to be deployed
+into availability zones. Deploy the machine first and get the error message
+of failing due to marketplace terms then run this script.
+Reference Marketplace Source file
+"storageProfile": {
+    "imageReference": {
+        "publisher": "checkpoint",
+        "offer": "check-point-vsec-r80",
+        "sku": "sg-byol",
+        "version": "latest"
+    }
+}
+#>
+
 $targetSubscriptionId='targetsubID'
 Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
 $vmName = 'vmName'
@@ -55,9 +69,12 @@ $resourceGroupName = 'rgName'
 $Zone = "1-2-3" #option of zone 1,2,3
 $nicName = 'nicName'
 $vmSize = 'Standard_E4_v3'
-$OSDiskSize = 100
-$OSDiskCreateOption = 'Attach'
+$oSDiskSize = 100
+$oSDiskCreateOption = 'Attach'
 $location = 'francecentral'
+$publisherName = ""
+$productName = ""
+$skuName = ""
 
 
 $snapshotName = "$vmName-temp"
@@ -91,9 +108,9 @@ $osDisk = New-AzureRmDisk -DiskName "$osDiskName" -Disk `
 Remove-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
 
 
-$agreementTerms = Get-AzureRmMarketplaceTerms -Publisher "publisherName" -Product "offerName" -Name "skuName" 
+$agreementTerms = Get-AzureRmMarketplaceTerms -Publisher $publisherName -Product $productName -Name $skuName
 
-Set-AzureRmMarketplaceTerms -Publisher "publisherName" -Product "offerName" -Name "skuName" -Terms $agreementTerms -Accept 
+Set-AzureRmMarketplaceTerms -Publisher $publisherName -Product $productName -Name $skuName -Terms $agreementTerms -Accept 
 $nic = Get-AzureRmNetworkInterface -Name $nicName `
    -ResourceGroupName $destinationResourceGroup 
 
@@ -102,6 +119,6 @@ $vmConfig = New-AzureRmVMConfig -VMName "$vmName" -VMSize $vmSize
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS -DiskSizeInGB $OSDiskSize -CreateOption $OSDiskCreateOption -Linux
-$vm = Set-AzureRmVMPlan -VM $vm -Publisher "publisherName" -Product "offerName" -Name "skuName"
+$vm = Set-AzureRmVMPlan -VM $vm -Publisher $publisherName -Product $productName -Name $skuName
 
 New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
