@@ -47,15 +47,19 @@ Reference Marketplace Source file
     }
 }
 #>
+
 $targetSubscriptionId='targetsubID'
 Select-AzureRmSubscription -SubscriptionId $targetSubscriptionId
 $vmName = 'vmName'
 $resourceGroupName = 'rgName' 
 $Zone = "1-2-3" #option of zone 1,2,3
-$nicName = "nicName"
-$vmSize = "Standard_E4_v3"
+$nicName = 'nicName'
+$vmSize = 'Standard_E4_v3'
+$OSDiskSize = 100
+$OSDiskCreateOption = 'Attach'
+$location = 'francecentral'
 
-$location = 'francecentral' 
+
 $snapshotName = "$vmName-temp"
 $osDiskName = "$vmName-OS-Disk"
 
@@ -97,11 +101,7 @@ $vmConfig = New-AzureRmVMConfig -VMName "$vmName" -VMSize $vmSize
 
 $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
-$vm = Set-AzureRmVMOSDisk -VM $vm `
-    -ManagedDiskId $osDisk.Id `
-    -StorageAccountType Standard_LRS `
-    -DiskSizeInGB 100 ` ## This can be changed according to the disk size you need
-    -CreateOption Attach -Linux
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS -DiskSizeInGB $OSDiskSize -CreateOption $OSDiskCreateOption -Linux
 $vm = Set-AzureRmVMPlan -VM $vm -Publisher "publisherName" -Product "offerName" -Name "skuName"
 
 New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
